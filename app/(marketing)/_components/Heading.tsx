@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export const Heading = () => {
   return (
@@ -14,7 +15,10 @@ export const Heading = () => {
         Likenotion is the connected workspace where <br />
         better, faster work happens
       </h3>
-      <Button>Get started</Button>
+      <Button>
+        Get started
+        <ArrowRight className="w-4 h-4 ml-2" />
+      </Button>
     </div>
   );
 };
