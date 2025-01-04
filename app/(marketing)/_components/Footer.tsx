@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="flex items-center w-full p-6 bg-background z-50">
       <Logo />

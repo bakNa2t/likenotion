@@ -1,4 +1,5 @@
 import { Entities } from "./_components/Entities";
+import { Footer } from "./_components/Footer";
 import { Heading } from "./_components/Heading";
 
 const MarketingPage = () => {
@@ -8,6 +9,7 @@ const MarketingPage = () => {
         <Heading />
         <Entities />
       </div>
+      <Footer />
     </div>
   );
 };
