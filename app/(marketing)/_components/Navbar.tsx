@@ -2,6 +2,7 @@
 
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "@/components/theme-mode-toggle";
 import { Logo } from "./Logo";
 
 export const Navbar = () => {
@@ -15,6 +16,10 @@ export const Navbar = () => {
       )}
     >
       <Logo />
+
+      <div className="w-full flex items-center justify-between gap-x-2 md:ml-auto md:justify-end">
+        <ModeToggle />
+      </div>
     </div>
   );
 };
