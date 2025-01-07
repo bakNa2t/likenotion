@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useConvexAuth } from "convex/react";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
 
 import { Logo } from "./Logo";
 
@@ -37,6 +38,15 @@ export const Navbar = () => {
             <SignInButton mode="modal">
               <Button size="sm">Join Likenotion free</Button>
             </SignInButton>
+          </>
+        )}
+
+        {isAuthenticated && !isLoading && (
+          <>
+            <Button variant="ghost" size="sm">
+              <Link href="/documents">Enter Likenotion</Link>
+            </Button>
+            <UserButton />
           </>
         )}
         <ModeToggle />
