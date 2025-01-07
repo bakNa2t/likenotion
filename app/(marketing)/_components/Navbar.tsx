@@ -32,6 +32,10 @@ export const Navbar = () => {
                 Sign in
               </Button>
             </SignInButton>
+
+            <SignInButton mode="modal">
+              <Button size="sm">Join Likenotion free</Button>
+            </SignInButton>
           </>
         )}
         <ModeToggle />
