@@ -46,7 +46,7 @@ export const Navbar = () => {
             <Button variant="ghost" size="sm">
               <Link href="/documents">Enter Likenotion</Link>
             </Button>
-            <UserButton />
+            <UserButton afterSwitchSessionUrl="/" />
           </>
         )}
         <ModeToggle />
