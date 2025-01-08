@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
+import { SignInButton } from "@clerk/clerk-react";
 
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -17,10 +18,10 @@ export const Heading = () => {
         Your Ideas💡, Documents📕, & Plans🚀. Welcome to{" "}
         <span className="underline">Likenotion</span>
       </h1>
-      <h3 className="text-base sm:text-xl md:text-2xl font-medium">
+      <h2 className="text-base sm:text-xl md:text-2xl font-medium">
         Likenotion is the connected workspace where <br />
         better, faster work happens
-      </h3>
+      </h2>
 
       {isLoading && (
         <div className="w-full flex items-center justify-center">
@@ -28,13 +29,22 @@ export const Heading = () => {
         </div>
       )}
 
-      {!isAuthenticated && !isLoading && (
+      {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
             Get started
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </Button>
+      )}
+
+      {!isAuthenticated && !isLoading && (
+        <SignInButton mode="modal">
+          <Button>
+            Join Likenotion free
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </SignInButton>
       )}
     </div>
   );
