@@ -17,7 +17,7 @@ export const Navbar = () => {
   const scrolled = useScrollTop();
 
   return (
-    <div
+    <nav
       className={cn(
         "z-50 bg-background dark:bg-[#131313] fixed top-0 flex items-center w-full p-6",
         scrolled && "border-b shadow-sm"
@@ -51,6 +51,6 @@ export const Navbar = () => {
         )}
         <ModeToggle />
       </div>
-    </div>
+    </nav>
   );
 };

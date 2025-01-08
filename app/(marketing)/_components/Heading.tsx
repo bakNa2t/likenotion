@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useConvexAuth } from "convex/react";
+import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Spinner } from "@/components/spinner";
 
 export const Heading = () => {
@@ -28,9 +29,11 @@ export const Heading = () => {
       )}
 
       {!isAuthenticated && !isLoading && (
-        <Button>
-          Get started
-          <ArrowRight className="w-4 h-4 ml-2" />
+        <Button asChild>
+          <Link href="/documents">
+            Get started
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
         </Button>
       )}
     </div>
