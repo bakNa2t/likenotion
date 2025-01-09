@@ -66,6 +66,19 @@ export const Navigation = () => {
     }
   };
 
+  const collapseBar = () => {
+    if (sidebarRef.current && navbarRef.current) {
+      setIsCollapsed(true);
+      setIsResetting(true);
+
+      sidebarRef.current.style.width = "0";
+      navbarRef.current.style.setProperty("width", "100%");
+      navbarRef.current.style.setProperty("left", "0");
+
+      setTimeout(() => setIsResetting(false), 300);
+    }
+  };
+
   return (
     <>
       <aside
@@ -82,6 +95,7 @@ export const Navigation = () => {
             "absolute top-3 right-2 w-6 h-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}
+          onClick={collapseBar}
         >
           <ChevronsLeft className="w-6 h-6" />
         </div>
@@ -111,7 +125,11 @@ export const Navigation = () => {
       >
         <nav className="w-full px-3 py-2 bg-transparent">
           {isCollapsed && (
-            <MenuIcon role="button" className="w-6 h-6 text-muted-foreground" />
+            <MenuIcon
+              role="button"
+              className="w-6 h-6 text-muted-foreground"
+              onClick={resetWidth}
+            />
           )}
         </nav>
       </div>
