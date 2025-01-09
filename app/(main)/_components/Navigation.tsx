@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentRef, useRef, useState } from "react";
+import React, { ComponentRef, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
@@ -15,6 +15,17 @@ export const Navigation = () => {
   const navbarRef = useRef<ComponentRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  const handleMouseDown = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    isResizingRef.current = true;
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
 
   return (
     <>
@@ -44,7 +55,11 @@ export const Navigation = () => {
           <p>Documents</p>
         </div>
 
-        <div className="absolute top-0 right-0 opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize h-full w-1 bg-primary/10" />
+        <div
+          onClick={() => {}}
+          onMouseDown={handleMouseDown}
+          className="absolute top-0 right-0 opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize h-full w-1 bg-primary/10"
+        />
       </aside>
 
       <div
