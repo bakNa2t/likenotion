@@ -27,6 +27,29 @@ export const Navigation = () => {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!isResizingRef.current) return;
+    let newWidth = event.clientX;
+
+    if (newWidth < 240) newWidth = 240;
+    if (newWidth > 480) newWidth = 480;
+
+    if (sidebarRef.current && navbarRef.current) {
+      sidebarRef.current.style.width = `${newWidth}px`;
+      navbarRef.current.style.setProperty("left", `${newWidth}px`);
+      navbarRef.current.style.setProperty(
+        "width",
+        `calc(100% - ${newWidth}px)`
+      );
+    }
+  };
+
+  const handleMouseUp = () => {
+    isResizingRef.current = false;
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+  };
+
   return (
     <>
       <aside
@@ -56,13 +79,14 @@ export const Navigation = () => {
         </div>
 
         <div
-          onClick={() => {}}
           onMouseDown={handleMouseDown}
+          onClick={() => {}}
           className="absolute top-0 right-0 opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize h-full w-1 bg-primary/10"
         />
       </aside>
 
       <div
+        ref={navbarRef}
         className={cn(
           "absolute top-0 left-60 w-[calc(100%-240px)] z-[99999]",
           isResetting && "transition-all duration-300 ease-in-out",
