@@ -1,12 +1,16 @@
 "use client";
 
+import { ChevronsLeftRight } from "lucide-react";
+import { SignOutButton, useUser } from "@clerk/clerk-react";
+
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useUser } from "@clerk/clerk-react";
-import { ChevronsLeftRight } from "lucide-react";
 
 export const UserItem = () => {
   const { user } = useUser();
@@ -29,6 +33,42 @@ export const UserItem = () => {
           <ChevronsLeftRight className="rotate-90 ml-2 text-muted-foreground w-4 h-4" />
         </div>
       </DropdownMenuTrigger>
+
+      <DropdownMenuContent
+        className="w-80"
+        align="start"
+        alignOffset={10}
+        forceMount
+      >
+        <div className="flex flex-col space-y-4 p-2">
+          <p className="text-xs font-medium leading-none text-muted-foreground">
+            {user?.emailAddresses[0].emailAddress}
+          </p>
+
+          <div className="flex items-center dap-x-2">
+            <div className="rounded-md bg-secondary p-1">
+              <Avatar className="w-8 h-8">
+                <AvatarImage src={user?.imageUrl} />
+              </Avatar>
+            </div>
+
+            <div className="space-y-1">
+              <p className="text-sm line-clamp-1">
+                {user?.fullName}&apos;s Likenotion
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem
+          asChild
+          className="w-full text-muted-foreground cursor-pointer"
+        >
+          <SignOutButton>Sign out</SignOutButton>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
