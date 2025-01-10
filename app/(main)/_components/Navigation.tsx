@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ComponentRef, useRef, useState } from "react";
+import React, { ComponentRef, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
@@ -15,6 +15,20 @@ export const Navigation = () => {
   const navbarRef = useRef<ComponentRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  useEffect(() => {
+    if (isMobile) {
+      collapseBar();
+    } else {
+      resetWidth();
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
+      collapseBar();
+    }
+  }, [pathname, isMobile]);
 
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -92,7 +106,7 @@ export const Navigation = () => {
         <div
           role="button"
           className={cn(
-            "absolute top-3 right-2 w-6 h-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "absolute top-3 right-2 w-6 h-6 text-muted-foreground rounded-sm hover:bg-neutral-400 dark:hover:bg-neutral-600 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}
           onClick={collapseBar}
