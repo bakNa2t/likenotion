@@ -2,12 +2,32 @@
 
 import { LucideIcon } from "lucide-react";
 
+import { Id } from "@/convex/_generated/dataModel";
+
 interface ItemProps {
+  id?: Id<"documents">;
+  ducumentIcon?: string;
+  active?: boolean;
+  expanded?: boolean;
+  isSearch?: boolean;
+  level?: number;
+  onExpand?: () => void;
   label: string;
   onClick: () => void;
   icon: LucideIcon;
 }
-export const Item = ({ label, onClick, icon: Icon }: ItemProps) => {
+export const Item = ({
+  id,
+  label,
+  onClick,
+  icon: Icon,
+  active,
+  documentIcon,
+  isSearch,
+  level = 0,
+  expanded,
+  onExpand,
+}: ItemProps) => {
   return (
     <div
       role="button"
