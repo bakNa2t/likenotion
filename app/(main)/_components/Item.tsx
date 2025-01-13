@@ -30,6 +30,13 @@ export const Item = ({
   expanded,
   onExpand,
 }: ItemProps) => {
+  const handleExpand = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+    onExpand?.();
+  };
+
   const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
   return (
@@ -48,7 +55,7 @@ export const Item = ({
         <div
           role="button"
           className="h-full mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
-          onClick={() => {}}
+          onClick={handleExpand}
         >
           <ChevronIcon className="shrink-0 w-4 h-4 text-muted-foreground/50" />
         </div>
