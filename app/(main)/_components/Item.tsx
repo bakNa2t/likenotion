@@ -52,12 +52,20 @@ export const Item = ({
           <ChevronIcon className="shrink-0 w-4 h-4 text-muted-foreground/50" />
         </div>
       )}
+
       {documentIcon ? (
         <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
       ) : (
         <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
       )}
+
       <span className="truncate">{label}</span>
+
+      {isSearch && (
+        <kbd className="inline-flex h-5 items-center gap-1 ml-auto px-1.5 pointer-events-none select-none rounded border bg-muted font-mono font-medium text-[10px] text-muted-foreground opacity-100">
+          <span className="text-xs">CTRL</span>k
+        </kbd>
+      )}
     </div>
   );
 };
