@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react";
+import { ChevronDown, ChevronRight, LucideIcon, Plus } from "lucide-react";
 
 import { Id } from "@/convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
@@ -73,6 +73,14 @@ export const Item = ({
         <kbd className="inline-flex h-5 items-center gap-1 ml-auto px-1.5 pointer-events-none select-none rounded border bg-muted font-mono font-medium text-[10px] text-muted-foreground opacity-100">
           <span className="text-xs">CTRL</span>+ K
         </kbd>
+      )}
+
+      {!!id && (
+        <div className="flex items-center ml-auto gap-x-2">
+          <div className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600">
+            <Plus className="w-4 h-4 text-muted-foreground" />
+          </div>
+        </div>
       )}
     </div>
   );
