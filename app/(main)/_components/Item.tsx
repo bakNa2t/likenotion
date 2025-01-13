@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 interface ItemProps {
   id?: Id<"documents">;
-  ducumentIcon?: string;
+  documentIcon?: string;
   active?: boolean;
   expanded?: boolean;
   isSearch?: boolean;
@@ -52,7 +52,11 @@ export const Item = ({
           <ChevronIcon className="shrink-0 w-4 h-4 text-muted-foreground/50" />
         </div>
       )}
-      <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+      {documentIcon ? (
+        <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
+      ) : (
+        <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+      )}
       <span className="truncate">{label}</span>
     </div>
   );
