@@ -63,7 +63,7 @@ export const Item = ({
 
       {isSearch && (
         <kbd className="inline-flex h-5 items-center gap-1 ml-auto px-1.5 pointer-events-none select-none rounded border bg-muted font-mono font-medium text-[10px] text-muted-foreground opacity-100">
-          <span className="text-xs">CTRL</span>k
+          <span className="text-xs">CTRL</span>+ K
         </kbd>
       )}
     </div>
