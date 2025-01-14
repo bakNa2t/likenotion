@@ -5,15 +5,17 @@ import { usePathname } from "next/navigation";
 import {
   ChevronsLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
 } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 
 import { UserItem } from "./UserItem";
 import { Item } from "./Item";
+import { DocumentList } from "./DocumentList";
 
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
@@ -22,7 +24,6 @@ import { toast } from "sonner";
 export const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -149,9 +150,8 @@ export const Navigation = () => {
         </div>
 
         <div className="mt-4">
-          {documents?.map((document) => (
-            <p key={document._id}>{document.title}</p>
-          ))}
+          <DocumentList />
+          <Item label="Add a new page" onClick={handleCreateNote} icon={Plus} />
         </div>
 
         <div
