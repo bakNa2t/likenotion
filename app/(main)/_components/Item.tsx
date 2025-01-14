@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
@@ -52,6 +53,7 @@ export const Item = ({
   const { user } = useUser();
   const router = useRouter();
   const create = useMutation(api.documents.create);
+  const archive = useMutation(api.documents.archive);
 
   const handleExpand = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -78,6 +80,20 @@ export const Item = ({
       loading: "Creating a new note...",
       success: "Note created successfully!",
       error: "Failed to create a new note",
+    });
+  };
+
+  const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
+
+    if (!id) return;
+
+    const promise = archive({ id });
+
+    toast.promise(promise, {
+      loading: "Moving to trash",
+      success: "Note moved to trash",
+      error: "Failed to move note to trash",
     });
   };
 
@@ -137,7 +153,7 @@ export const Item = ({
               side="right"
               forceMount
             >
-              <DropdownMenuItem onClick={() => {}}>
+              <DropdownMenuItem onClick={onArchive}>
                 <Trash className="w-4 h-4 mr-2" />
                 Delete
               </DropdownMenuItem>
