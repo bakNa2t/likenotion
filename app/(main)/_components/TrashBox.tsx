@@ -8,6 +8,7 @@ import { Search, Trash, Undo } from "lucide-react";
 
 import { Spinner } from "@/components/spinner";
 import { Input } from "@/components/ui/input";
+import { ConfirmModal } from "@/components/modals/ConfirmModal";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
@@ -101,12 +102,14 @@ export const TrashBox = () => {
                 <Undo className="w-4 h-4 text-muted-foreground" />
               </div>
 
-              <div
-                role="button"
-                className="p-2 roundeed-sm hover:bg-neutral-200"
-              >
-                <Trash className="w-4 h-4 text-muted-foreground" />
-              </div>
+              <ConfirmModal onConfirm={() => onRemove(document._id)}>
+                <div
+                  role="button"
+                  className="p-2 roundeed-sm hover:bg-neutral-200"
+                >
+                  <Trash className="w-4 h-4 text-muted-foreground" />
+                </div>
+              </ConfirmModal>
             </div>
           </div>
         ))}
