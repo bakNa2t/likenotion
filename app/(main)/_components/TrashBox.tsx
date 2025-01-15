@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { useParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Search, Undo } from "lucide-react";
+import { Search, Trash, Undo } from "lucide-react";
 
 import { Spinner } from "@/components/spinner";
 import { Input } from "@/components/ui/input";
@@ -99,6 +99,13 @@ export const TrashBox = () => {
                 className="rounded-sm p-2 hover:bg-neutral-200"
               >
                 <Undo className="w-4 h-4 text-muted-foreground" />
+              </div>
+
+              <div
+                role="button"
+                className="p-2 roundeed-sm hover:bg-neutral-200"
+              >
+                <Trash className="w-4 h-4 text-muted-foreground" />
               </div>
             </div>
           </div>
