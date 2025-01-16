@@ -32,6 +32,11 @@ export const SearchCommand = () => {
     setIsMounted(true);
   }, []);
 
+  const onSelect = (id: string) => {
+    router.push(`/documents/${id}`);
+    onClose();
+  };
+
   if (!isMounted) return null;
 
   return (
@@ -46,7 +51,7 @@ export const SearchCommand = () => {
               key={document._id}
               value={`${document._id}-${document.title}`}
               title={document.title}
-              onSelect={() => {}}
+              onSelect={() => onSelect(document._id)}
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">{document.icon}</p>
