@@ -18,8 +18,7 @@ import { toast } from "sonner";
 import { UserItem } from "./UserItem";
 import { Item } from "./Item";
 import { DocumentList } from "./DocumentList";
-
-import { cn } from "@/lib/utils";
+import { TrashBox } from "./TrashBox";
 import { api } from "@/convex/_generated/api";
 import {
   Popover,
@@ -27,10 +26,14 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+import { cn } from "@/lib/utils";
+import { useSearch } from "@/hooks/useSearch";
+
 export const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
+  const search = useSearch();
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ComponentRef<"aside">>(null);
@@ -150,7 +153,7 @@ export const Navigation = () => {
 
         <div>
           <UserItem />
-          <Item label="Search" icon={Search} isSearch onClick={() => {}} />
+          <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
           <Item label="Settings" icon={Settings} onClick={() => {}} />
           <Item onClick={handleCreateNote} label="New page" icon={PlusCircle} />
         </div>
@@ -167,7 +170,7 @@ export const Navigation = () => {
               side={isMobile ? "bottom" : "right"}
               className="w-72 p-0"
             >
-              <p>Trash box</p>
+              <TrashBox />
             </PopoverContent>
           </Popover>
         </div>
