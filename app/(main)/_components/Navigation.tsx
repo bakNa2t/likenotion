@@ -28,12 +28,14 @@ import {
 
 import { cn } from "@/lib/utils";
 import { useSearch } from "@/hooks/useSearch";
+import { useSettings } from "@/hooks/useSettings";
 
 export const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
   const search = useSearch();
+  const settings = useSettings();
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ComponentRef<"aside">>(null);
@@ -154,7 +156,7 @@ export const Navigation = () => {
         <div>
           <UserItem />
           <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
-          <Item label="Settings" icon={Settings} onClick={() => {}} />
+          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item onClick={handleCreateNote} label="New page" icon={PlusCircle} />
         </div>
 
