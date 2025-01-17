@@ -29,18 +29,45 @@ export const Title = ({ initialDate }: TitleProps) => {
     });
   };
 
+  const disableInput = () => {
+    setIsEditing(false);
+  };
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+
+    update({
+      id: initialDate._id,
+      title: event.target.value || "Untitled",
+    });
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      disableInput();
+    }
+  };
+
   return (
     <div className="flex items-center gap-x-1">
       {!!initialDate && <p>{initialDate.icon}</p>}
 
       {isEditing ? (
-        <Input className="h-7 px-2 focus-visible:ring-transparent" />
+        <Input
+          ref={inputRef}
+          onClick={enableInput}
+          onBlur={disableInput}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={title}
+          className="h-7 px-2 focus-visible:ring-transparent"
+        />
       ) : (
         <Button
           variant="ghost"
           size="sm"
           className="h-auto font-normal p-1"
-          onClick={() => {}}
+          onClick={enableInput}
         >
           <span className="truncate">{initialDate?.title}</span>
         </Button>
