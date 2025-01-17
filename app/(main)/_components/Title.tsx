@@ -1,22 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation } from "convex/react";
 
 import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface TitleProps {
   initialDate: Doc<"documents">;
 }
 
 export const Title = ({ initialDate }: TitleProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const update = useMutation(api.documents.update);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [title, setTitle] = useState(initialDate.title || "Untitled");
+
+  const enableInput = () => {
+    setTitle(initialDate.title);
+    setIsEditing(true);
+
+    setTimeout(() => {
+      inputRef.current?.focus();
+      inputRef.current?.setSelectionRange(0, inputRef.current.value.length);
+    });
+  };
 
   return (
     <div className="flex items-center gap-x-1">
       {!!initialDate && <p>{initialDate.icon}</p>}
+
+      {isEditing ? (
+        <Input className="h-7 px-2 focus-visible:ring-transparent" />
+      ) : (
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-auto font-normal p-1"
+          onClick={() => {}}
+        >
+          <span className="truncate">{initialDate?.title}</span>
+        </Button>
+      )}
     </div>
   );
 };
