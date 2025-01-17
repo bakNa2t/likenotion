@@ -7,6 +7,7 @@ import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TitleProps {
   initialDate: Doc<"documents">;
@@ -74,4 +75,8 @@ export const Title = ({ initialDate }: TitleProps) => {
       )}
     </div>
   );
+};
+
+Title.Skeleton = function TitleSkeleton() {
+  return <Skeleton className="w-20 h-6 rounred-md" />;
 };
