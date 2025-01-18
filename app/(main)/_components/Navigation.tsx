@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ComponentRef, useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import {
   ChevronsLeft,
   MenuIcon,
@@ -16,6 +16,7 @@ import { useMutation } from "convex/react";
 import { toast } from "sonner";
 
 import { UserItem } from "./UserItem";
+import { Navbar } from "./Navbar";
 import { Item } from "./Item";
 import { DocumentList } from "./DocumentList";
 import { TrashBox } from "./TrashBox";
@@ -31,6 +32,7 @@ import { useSearch } from "@/hooks/useSearch";
 import { useSettings } from "@/hooks/useSettings";
 
 export const Navigation = () => {
+  const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
@@ -101,7 +103,7 @@ export const Navigation = () => {
         "width",
         isMobile ? "0" : "calc(100% - 240px)"
       );
-      navbarRef.current.style.setProperty("left", isMobile ? "100%" : "0");
+      navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
 
       setTimeout(() => setIsResetting(false), 300);
     }
@@ -192,15 +194,19 @@ export const Navigation = () => {
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="w-full px-3 py-2 bg-transparent">
-          {isCollapsed && (
-            <MenuIcon
-              role="button"
-              className="w-6 h-6 text-muted-foreground"
-              onClick={resetWidth}
-            />
-          )}
-        </nav>
+        {!!params.documentId ? (
+          <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
+        ) : (
+          <nav className="w-full px-3 py-2 bg-transparent">
+            {isCollapsed && (
+              <MenuIcon
+                role="button"
+                className="w-6 h-6 text-muted-foreground"
+                onClick={resetWidth}
+              />
+            )}
+          </nav>
+        )}
       </div>
     </>
   );
