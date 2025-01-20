@@ -1,10 +1,11 @@
 "use client";
 
 import { IconPicker } from "./icon-picker";
+import { ImageIcon, Smile, X } from "lucide-react";
+
+import { Button } from "./ui/button";
 
 import { Doc } from "@/convex/_generated/dataModel";
-import { Button } from "./ui/button";
-import { Smile, X } from "lucide-react";
 
 interface ToolbarProps {
   initialData: Doc<"documents">;
@@ -49,6 +50,18 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
               Add icon
             </Button>
           </IconPicker>
+        )}
+
+        {!initialData.coverImage && !preview && (
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => {}}
+            className="text-xs text-muted-foreground"
+          >
+            <ImageIcon className="w-4 h-4 mr-4" />
+            Add cover
+          </Button>
         )}
       </div>
     </div>
