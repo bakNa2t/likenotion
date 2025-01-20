@@ -3,6 +3,7 @@
 import { ComponentRef, useRef, useState } from "react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { useMutation } from "convex/react";
+import TextareaAutosize from "react-textarea-autosize";
 
 import { IconPicker } from "./icon-picker";
 import { Button } from "./ui/button";
@@ -83,7 +84,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
               variant="outline"
               className="text-xs text-muted-foreground"
             >
-              <Smile className="w-4 h-4 mr-2" />
+              <Smile className="w-4 h-4 mr-1" />
               Add icon
             </Button>
           </IconPicker>
@@ -96,11 +97,29 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             onClick={() => {}}
             className="text-xs text-muted-foreground"
           >
-            <ImageIcon className="w-4 h-4 mr-4" />
+            <ImageIcon className="w-4 h-4 mr-1" />
             Add cover
           </Button>
         )}
       </div>
+
+      {isEditing && !preview ? (
+        <TextareaAutosize
+          ref={inputRef}
+          value={value}
+          onBlur={disableInput}
+          onKeyDown={onKeyDown}
+          onChange={(e) => onInput(e.target.value)}
+          className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#D9D9D9] resize-none"
+        />
+      ) : (
+        <div
+          onClick={enableInput}
+          className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#D9D9D9]"
+        >
+          {initialData.title}
+        </div>
+      )}
     </div>
   );
 };
