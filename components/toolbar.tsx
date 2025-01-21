@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 
 import { Doc } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
+import { useCoverImage } from "@/hooks/useCoverImage";
 
 interface ToolbarProps {
   initialData: Doc<"documents">;
@@ -23,6 +24,8 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
 
   const update = useMutation(api.documents.update);
   const removeIcon = useMutation(api.documents.removeIcon);
+
+  const coverImage = useCoverImage();
 
   const enableInput = () => {
     if (preview) return;
@@ -108,7 +111,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
           <Button
             size="sm"
             variant="outline"
-            onClick={() => {}}
+            onClick={coverImage.onOpen}
             className="text-xs text-muted-foreground"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
