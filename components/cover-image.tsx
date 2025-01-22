@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { ImageIcon, X } from "lucide-react";
+
+import { Button } from "./ui/button";
 
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { ImageIcon, X } from "lucide-react";
+import { useCoverImage } from "@/hooks/useCoverImage";
 
 interface CoverImageProps {
   url?: string;
@@ -12,6 +14,8 @@ interface CoverImageProps {
 }
 
 export const CoverImage = ({ url, preview }: CoverImageProps) => {
+  const coverImage = useCoverImage();
+
   return (
     <div
       className={cn(
@@ -27,7 +31,7 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
           <Button
             size="sm"
             variant="outline"
-            onClick={() => {}}
+            onClick={coverImage.onOpen}
             className="text-muted-foreground text-xs"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
