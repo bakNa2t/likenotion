@@ -52,7 +52,7 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
           <Button
             size="sm"
             variant="outline"
-            onClick={coverImage.onOpen}
+            onClick={() => coverImage.onReplace(url)}
             className="text-muted-foreground text-xs"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
