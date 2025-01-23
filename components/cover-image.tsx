@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { ImageIcon, X } from "lucide-react";
 
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
@@ -73,3 +74,9 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
     </div>
   );
 };
+
+CoverImage.Skeleton = function CoverImageSkeleton() {
+  return (
+    <Skeleton className="w-full h-[12vh]"/>
+  )
+}
