@@ -90,6 +90,8 @@ export const Item = ({
 
     const promise = archive({ id });
 
+    router.push("/documents");
+
     toast.promise(promise, {
       loading: "Moving to trash",
       success: "Note moved to trash",
