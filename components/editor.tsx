@@ -4,6 +4,8 @@ import { useTheme } from "next-themes";
 import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
+
+import { useEdgeStore } from "@/lib/edgestore";
 import "@blocknote/core/style.css";
 import "@blocknote/mantine/style.css";
 
@@ -15,6 +17,15 @@ interface EditorProps {
 
 export const Editor = ({ initialContent, editable, onChange }: EditorProps) => {
   const { resolvedTheme } = useTheme();
+  const { edgestore } = useEdgeStore();
+
+  const handleUpload = async (file: File) => {
+    const res = await edgestore.publicFiles.upload({
+      file,
+    });
+
+    return res.url;
+  };
 
   const editor: BlockNoteEditor = useCreateBlockNote({
     editable,
@@ -24,13 +35,14 @@ export const Editor = ({ initialContent, editable, onChange }: EditorProps) => {
     onEditorContentChange: (editor) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
     },
+    uploadFile: handleUpload,
   });
 
   return (
     <div>
       <BlockNoteView
-        editor={editor}
         editable={editable}
+        editor={editor}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
       />
     </div>
