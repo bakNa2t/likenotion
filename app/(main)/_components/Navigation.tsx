@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ComponentRef, useEffect, useRef, useState } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import {
   ChevronsLeft,
   MenuIcon,
@@ -34,6 +34,7 @@ import { useSettings } from "@/hooks/useSettings";
 export const Navigation = () => {
   const params = useParams();
   const pathname = usePathname();
+  const router = useRouter();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
   const search = useSearch();
@@ -125,7 +126,7 @@ export const Navigation = () => {
   const handleCreateNote = () => {
     const promise = create({
       title: "Untitled",
-    });
+    }).then((documentId) => router.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
       loading: "Creating a new note...",
