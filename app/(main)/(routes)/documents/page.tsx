@@ -1,20 +1,25 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
-import { api } from "@/convex/_generated/api";
-
-import Image from "next/image";
 import { PlusCircle } from "lucide-react";
 import { useUser } from "@clerk/clerk-react";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import Image from "next/image";
+
+import { Button } from "@/components/ui/button";
+import { api } from "@/convex/_generated/api";
 
 const DocumentsPage = () => {
+  const router = useRouter();
+
   const { user } = useUser();
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
 
     toast.promise(promise, {
       loading: "Creating a new note...",
