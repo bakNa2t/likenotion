@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 const Error = () => {
   return (
     <div className="h-full flex flex-col justify-center items-center space-y-4">
@@ -22,6 +25,10 @@ const Error = () => {
       />
 
       <h2 className="text-xl font-medium">Something went wrong!</h2>
+
+      <Button asChild>
+        <Link href="/documents">Go back</Link>
+      </Button>
     </div>
   );
 };
