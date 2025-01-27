@@ -12,6 +12,8 @@ import "@blocknote/core/style.css";
 import "@blocknote/mantine/style.css";
 import "@blocknote/core/fonts/inter.css";
 
+import { Button } from "./ui/button";
+
 import { Id } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
 import { useEdgeStore } from "@/lib/edgestore";
@@ -75,6 +77,12 @@ const Editor = ({ initialContent, editable, params }: EditorProps) => {
         theme={resolvedTheme === "dark" ? "dark" : "light"}
         onChange={() => setBlocks(editor.document)}
       />
+
+      <div className="flex justify-end items-center w-full">
+        <Button onClick={onSubmit} className="mt-4">
+          Save
+        </Button>
+      </div>
     </div>
   );
 };
