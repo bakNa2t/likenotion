@@ -6,7 +6,6 @@ import { useMemo } from "react";
 
 import { Toolbar } from "@/components/toolbar";
 import { CoverImage } from "@/components/cover-image";
-// import { Editor } from "@/components/editor";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
@@ -63,7 +62,11 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
       <CoverImage url={document.coverImage} />
       <div className="mx-auto md:max-w-3xl lg:max-w-4xl">
         <Toolbar initialData={document} />
-        <Editor onChange={onChange} initialContent={document.content} />
+        <Editor
+          onChange={onChange}
+          initialContent={document.content}
+          params={params}
+        />
       </div>
     </div>
   );

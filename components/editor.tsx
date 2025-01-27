@@ -32,6 +32,9 @@ const Editor = ({ initialContent, editable, params }: EditorProps) => {
   const [value, setValue] = useState<string>(
     initialContent ? initialContent : ""
   );
+  console.log(value);
+
+  const update = useMutation(api.documents.update);
 
   const { resolvedTheme } = useTheme();
 
@@ -50,12 +53,8 @@ const Editor = ({ initialContent, editable, params }: EditorProps) => {
     uploadFile: handleUpload,
   });
 
-  const update = useMutation(api.documents.update);
-
   const onSubmit = () => {
-    if (value.trim() !== "") {
-      setValue(JSON.stringify(blocks, null, 2));
-    }
+    setValue(JSON.stringify(blocks, null, 2));
 
     const promise = update({
       id: params.documentId,
