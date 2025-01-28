@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
-import { Globe } from "lucide-react";
+import { Check, Copy, Globe } from "lucide-react";
 
 import {
   Popover,
@@ -96,6 +96,18 @@ export const Publish = ({ initialData }: PublishProps) => {
                 className="flex-1 h-8 px-2 border rounded-l-md text-xs bg-muted truncate"
                 disabled
               />
+
+              <Button
+                onClick={onCopy}
+                className="h-8 rounded-l-none"
+                disabled={copied}
+              >
+                {copied ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </Button>
             </div>
           </div>
         ) : (
