@@ -82,7 +82,22 @@ export const Publish = ({ initialData }: PublishProps) => {
 
       <PopoverContent className="w-72" align="end" alignOffset={8} forceMount>
         {initialData.isPublished ? (
-          <div>Published</div>
+          <div className="space-y-4">
+            <div className="flex items-center gap-x-2">
+              <Globe className="w-4 h-4 animate-pulse text-purple-500" />
+              <p className="text-xs font-medium text-purple-500">
+                This note is live on the web
+              </p>
+            </div>
+
+            <div className="flex items-center">
+              <input
+                value={url}
+                className="flex-1 h-8 px-2 border rounded-l-md text-xs bg-muted truncate"
+                disabled
+              />
+            </div>
+          </div>
         ) : (
           <div className="flex flex-col justify-center items-center">
             <Globe className="w-8 h-8 text-muted-foreground mb-2" />
