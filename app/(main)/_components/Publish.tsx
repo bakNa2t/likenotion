@@ -109,10 +109,19 @@ export const Publish = ({ initialData }: PublishProps) => {
                 )}
               </Button>
             </div>
+
+            <Button
+              size="sm"
+              onClick={onUnpublish}
+              className="w-full text-xs"
+              disabled={isSubmiting}
+            >
+              Unpublish
+            </Button>
           </div>
         ) : (
           <div className="flex flex-col justify-center items-center">
-            <Globe className="w-8 h-8 text-muted-foreground mb-2" />
+            <Globe className="w-8 h-8 text-muted-foreground mb-2 text-purple-500" />
             <p className="text-sm font-medium mb-2">Publish this note</p>
 
             <span className="text-xs text-muted-foreground mb-4">
