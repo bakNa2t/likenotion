@@ -12,11 +12,11 @@ export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
-    <div className="max-w-3xl space-y-4">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
+    <div className="max-w-3xl space-y-4 md:max-w-4xl">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
         {" "}
-        Your Ideas💡, Documents📕, & Plans🚀. Welcome to{" "}
-        <span className="underline">Likenotion</span>
+        Your Ideas💡, Intentions📝 & Plans🚀.
+        <br /> Welcome to <span className="underline">Likenotion</span>
       </h1>
       <h2 className="text-base sm:text-xl md:text-2xl font-medium">
         Likenotion is the connected workspace where <br />
