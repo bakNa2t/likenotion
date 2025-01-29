@@ -31,16 +31,16 @@ const DocumentsPage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-full space-y-4">
       <Image
-        src="/blank.svg"
-        width="300"
-        height="300"
+        src="blank.svg"
+        width="250"
+        height="250"
         alt="blank"
         className="dark:hidden"
       />
       <Image
-        src="/blank-dark.svg"
-        width="300"
-        height="300"
+        src="blank-dark.svg"
+        width="250"
+        height="250"
         alt="blank"
         className="hidden dark:block"
       />
