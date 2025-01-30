@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const font = Poppins({
+const font = Montserrat({
   subsets: ["latin"],
   weight: ["400", "600"],
 });
@@ -24,7 +24,9 @@ export const Logo = () => {
         alt="logo"
         className="hidden dark:block"
       />
-      <p className={cn("font-semibold", font.className)}>Likenotion</p>
+      <p className={cn("font-semibold md:text-2xl", font.className)}>
+        Likenotion
+      </p>
     </div>
   );
 };
