@@ -1,21 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { useTheme } from "next-themes";
-import { useMutation } from "convex/react";
-import { Block, BlockNoteEditor } from "@blocknote/core";
+import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
-import { toast } from "sonner";
 
 import "@blocknote/core/style.css";
 import "@blocknote/mantine/style.css";
 import "@blocknote/core/fonts/inter.css";
 
-import { Button } from "./ui/button";
-
 import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
 import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
@@ -27,15 +21,7 @@ interface EditorProps {
   onChange: (value: string) => void;
 }
 
-const Editor = ({ initialContent, editable, params }: EditorProps) => {
-  const [blocks, setBlocks] = useState<Block[]>([]);
-  const [value, setValue] = useState<string>(
-    initialContent ? initialContent : ""
-  );
-  console.log(value);
-
-  const update = useMutation(api.documents.update);
-
+const Editor = ({ initialContent, editable, onChange }: EditorProps) => {
   const { resolvedTheme } = useTheme();
 
   const { edgestore } = useEdgeStore();
@@ -49,39 +35,26 @@ const Editor = ({ initialContent, editable, params }: EditorProps) => {
   };
 
   const editor: BlockNoteEditor = useCreateBlockNote({
-    initialContent: initialContent ? JSON.parse(initialContent) : undefined,
+    initialContent: initialContent
+      ? (JSON.parse(initialContent) as PartialBlock[])
+      : undefined,
     uploadFile: handleUpload,
   });
 
-  const onSubmit = () => {
-    setValue(JSON.stringify(blocks, null, 2));
-
-    const promise = update({
-      id: params.documentId,
-      content: JSON.stringify(blocks, null, 2),
-    });
-
-    toast.promise(promise, {
-      loading: "Saving note...",
-      success: "Note saved successfully!",
-      error: "Failed to save note",
-    });
+  const uploadToDatabase = () => {
+    if (onChange) {
+      onChange(JSON.stringify(editor.document, null, 2));
+    }
   };
 
   return (
-    <div>
+    <div className="pr-8 md:pr-4">
       <BlockNoteView
         editable={editable}
         editor={editor}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
-        onChange={() => setBlocks(editor.document)}
+        onChange={uploadToDatabase}
       />
-
-      <div className="flex justify-end items-center w-full">
-        <Button onClick={onSubmit} className="mt-4">
-          Save
-        </Button>
-      </div>
     </div>
   );
 };
