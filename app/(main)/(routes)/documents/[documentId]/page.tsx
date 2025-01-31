@@ -1,8 +1,8 @@
 "use client";
 
+import { Usable, use, useMemo } from "react";
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
 
 import { Toolbar } from "@/components/toolbar";
 import { CoverImage } from "@/components/cover-image";
@@ -23,8 +23,12 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     []
   );
 
+  const paramsValue = use(
+    params as unknown as Usable<{ documentId: Id<"documents"> }>
+  );
+
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId,
+    documentId: paramsValue.documentId,
   });
 
   const update = useMutation(api.documents.update);
