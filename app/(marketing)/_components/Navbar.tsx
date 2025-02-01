@@ -11,6 +11,7 @@ import { Spinner } from "@/components/spinner";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/theme-mode-toggle";
 import { useScrollTop } from "@/hooks/use-scroll-top";
+import { LangToggle } from "@/components/lang-toggle";
 
 export const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -51,6 +52,7 @@ export const Navbar = () => {
           </>
         )}
         <ModeToggle />
+        <LangToggle />
       </div>
     </nav>
   );
