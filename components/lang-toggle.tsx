@@ -34,6 +34,12 @@ export function LangToggle() {
     }
   }, [router]);
 
+  const changeLocale = (newLocale: string) => {
+    setLocale(newLocale);
+    document.cookie = `NEXT_TRANSLATION_LOCALE=${newLocale}`;
+    router.refresh();
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -43,8 +49,12 @@ export function LangToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => {}}>English</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => {}}>Russian</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => changeLocale("en")}>
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => changeLocale("ru")}>
+          Russian
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
