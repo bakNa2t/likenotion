@@ -36,7 +36,7 @@ export function LangToggle() {
 
   const changeLocale = (newLocale: string) => {
     setLocale(newLocale);
-    document.cookie = `NEXT_TRANSLATION_LOCALE=${newLocale}`;
+    document.cookie = `NEXT_TRANSLATION_LOCALE=${newLocale};`;
     router.refresh();
   };
 
@@ -49,10 +49,16 @@ export function LangToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => changeLocale("en")}>
+        <DropdownMenuItem
+          onClick={() => changeLocale("en")}
+          className={`bg-background rounded-sm ${locale === "en" && "bg-secondary/45"}`}
+        >
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => changeLocale("ru")}>
+        <DropdownMenuItem
+          onClick={() => changeLocale("ru")}
+          className={`bg-background rounded-sm ${locale === "en" && "bg-secondary/45"}`}
+        >
           Russian
         </DropdownMenuItem>
       </DropdownMenuContent>
