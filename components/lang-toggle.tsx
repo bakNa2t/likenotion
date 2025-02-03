@@ -12,10 +12,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslations } from "next-intl";
 
 export function LangToggle() {
   const [locale, setLocale] = useState<string>("");
   const router = useRouter();
+
+  const t = useTranslations("DropdownMenu");
 
   useEffect(() => {
     const cookiesLocale = document.cookie
@@ -45,21 +48,21 @@ export function LangToggle() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
           <LanguagesIcon />
-          <span className="sr-only">Switch language</span>
+          <span className="sr-only">{t("titleLangMenu")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem
           onClick={() => changeLocale("en")}
-          className={`bg-background rounded-sm ${locale === "en" && "bg-secondary/45"}`}
+          className={`bg-background rounded-sm ${locale === "en" && "bg-secondary/85"}`}
         >
-          English
+          {t("en")} <span>| en |</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => changeLocale("ru")}
-          className={`bg-background rounded-sm ${locale === "en" && "bg-secondary/45"}`}
+          className={`bg-background rounded-sm ${locale === "ru" && "bg-secondary/85"}`}
         >
-          Russian
+          {t("ru")} <span>| ru |</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
