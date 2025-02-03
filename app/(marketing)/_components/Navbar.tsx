@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { useTranslations } from "next-intl";
 
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import { LangToggle } from "@/components/lang-toggle";
 export const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
   const scrolled = useScrollTop();
+  const t = useTranslations("Marketing");
 
   return (
     <nav
@@ -33,12 +35,12 @@ export const Navbar = () => {
           <>
             <SignInButton mode="modal">
               <Button variant="ghost" size="sm">
-                Sign in
+                {t("signIn")}
               </Button>
             </SignInButton>
 
             <SignInButton mode="modal">
-              <Button size="sm">Join Likenotion free</Button>
+              <Button size="sm">{t("join")}</Button>
             </SignInButton>
           </>
         )}
@@ -46,13 +48,16 @@ export const Navbar = () => {
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm">
-              <Link href="/documents">Enter Likenotion</Link>
+              <Link href="/documents">{t("startBtn")}</Link>
             </Button>
             <UserButton afterSwitchSessionUrl="/" />
           </>
         )}
-        <ModeToggle />
-        <LangToggle />
+
+        <div className="flex items-center gap-x-2">
+          <ModeToggle />
+          <LangToggle />
+        </div>
       </div>
     </nav>
   );
