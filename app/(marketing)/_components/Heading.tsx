@@ -2,25 +2,28 @@
 
 import Link from "next/link";
 import { useConvexAuth } from "convex/react";
+import { SignInButton } from "@clerk/clerk-react";
+import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
-import { SignInButton } from "@clerk/clerk-react";
 
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
+  const t = useTranslations("Marketing");
+
   return (
-    <div className="max-w-3xl space-y-4 md:max-w-4xl">
+    <div className="max-w-3xl space-y-4 md:max-w-5xl">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
         {" "}
-        Your Ideas💡, Intentions📝 & Plans🚀.
-        <br /> Welcome to <span className="underline">Likenotion</span>
+        {t("heading")}
+        <br />
+        {t("subheading")} <span className="underline">Likenotion</span>
       </h1>
       <h2 className="text-base sm:text-xl md:text-2xl font-medium">
-        Likenotion is the connected workspace where <br />
-        better, faster work happens
+        {t("description")}
       </h2>
 
       {isLoading && (
@@ -32,7 +35,7 @@ export const Heading = () => {
       {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
-            Get started
+            {t("startBtn")}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </Button>
@@ -41,7 +44,7 @@ export const Heading = () => {
       {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
-            Join Likenotion free
+            {t("join")}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </SignInButton>
