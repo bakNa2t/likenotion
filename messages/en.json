@@ -6,5 +6,13 @@
     "startBtn": "Get started",
     "signIn": "Sign in",
     "join": "Join Likenotion free"
+  },
+  "DropdownMenu": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "titleLangMenu": "Switch language",
+    "en": "English",
+    "ru": "Russian"
   }
 }
