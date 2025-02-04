@@ -46,8 +46,9 @@ export function LangToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" className="px-6 md:px-8">
           <LanguagesIcon />
+          <span>{locale && locale === "en" ? "en" : "ru"}</span>
           <span className="sr-only">{t("titleLangMenu")}</span>
         </Button>
       </DropdownMenuTrigger>
