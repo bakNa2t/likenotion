@@ -10,7 +10,7 @@ export function Footer() {
     <div className="flex items-center w-full p-6 bg-background dark:bg-[#131313] z-50">
       <div className="flex flex-col items-start gap-y-2 w-full">
         <Logo />
-        <p className="text-xs text-muted-foreground">
+        <p className="hidden md:block text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} Likenotion. All rights reserved.
         </p>
       </div>
