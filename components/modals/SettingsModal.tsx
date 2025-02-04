@@ -2,26 +2,35 @@
 
 import { Label } from "../ui/label";
 import { Dialog, DialogContent, DialogHeader } from "../ui/dialog";
+import { useTranslations } from "next-intl";
+import { Settings } from "lucide-react";
 
-import { useSettings } from "@/hooks/useSettings";
 import { ModeToggle } from "../theme-mode-toggle";
 import { LangToggle } from "../lang-toggle";
 
+import { useSettings } from "@/hooks/useSettings";
+
 export const SettingsModal = () => {
   const settings = useSettings();
+  const t = useTranslations("DropdownMenu");
 
   return (
     <Dialog open={settings.isOpen} onOpenChange={settings.onClose}>
       <DialogContent>
         <DialogHeader className="pb-3 border-b">
-          <h2 className="text-lg font-semibold">My Settings</h2>
+          <div className="flex items-center">
+            <Settings className="w-6 h-6 mr-2" />
+            <h2 className="text-lg font-semibold">
+              {t("modalHeadingSettings")}
+            </h2>
+          </div>
         </DialogHeader>
 
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-y-1">
-            <Label>Appearance</Label>
+            <Label>{t("appearance")}</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customize Likenotion&apos;s appearance on your device
+              {t("appearanceDescription")}
             </span>
           </div>
 
@@ -30,9 +39,9 @@ export const SettingsModal = () => {
 
         <div className="flex justify-between items-center mt-4">
           <div className="flex flex-col gap-y-1">
-            <Label>Language</Label>
+            <Label>{t("lang")}</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Chose Likenotion&apos;s language on your device
+              {t("langDescription")}
             </span>
           </div>
 
