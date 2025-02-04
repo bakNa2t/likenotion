@@ -24,5 +24,12 @@
     "langDescription": "Chose Likenotion's language on your device",
     "en": "English",
     "ru": "Russian"
+  },
+  "Documents": {
+    "search": "Search",
+    "settings": "Settings",
+    "trash": "Trash",
+    "page": "New page",
+    "addNew": "Add new page"
   }
 }
