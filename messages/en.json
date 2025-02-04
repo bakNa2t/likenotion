@@ -12,10 +12,16 @@
     "terms": "Terms of Service"
   },
   "DropdownMenu": {
+    "modalHeadingSettings": "My Settings",
+    "titleThemeMenu": "Toggle theme",
     "light": "Light",
     "dark": "Dark",
     "system": "System",
+    "appearance": "Appearance",
+    "appearanceDescription": "Customize Likenotion's appearance on your device",
     "titleLangMenu": "Switch language",
+    "lang": "Language",
+    "langDescription": "Chose Likenotion's language on your device",
     "en": "English",
     "ru": "Russian"
   }

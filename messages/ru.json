@@ -12,10 +12,16 @@
     "terms": "Условия использования"
   },
   "DropdownMenu": {
-    "light": "Светло",
-    "dark": "Темно",
-    "system": "Система",
+    "modalHeadingSettings": "Мои Настройки",
+    "titleThemeMenu": "Переключить тему",
+    "light": "Светлая",
+    "dark": "Темная",
+    "system": "Системная",
+    "appearance": "Внешний вид",
+    "appearanceDescription": "Настроить внешний вид Likenotion на вашем устройстве",
     "titleLangMenu": "Выбор языка",
+    "lang": "Язык",
+    "langDescription": "Выберите язык Likenotion на вашем устройстве",
     "en": "Английский",
     "ru": "Русский"
   }
