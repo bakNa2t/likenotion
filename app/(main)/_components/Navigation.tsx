@@ -14,6 +14,7 @@ import {
 import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 import { UserItem } from "./UserItem";
 import { Navbar } from "./Navbar";
@@ -45,6 +46,8 @@ export const Navigation = () => {
   const navbarRef = useRef<ComponentRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  const t = useTranslations("Documents");
 
   useEffect(() => {
     if (isMobile) {
@@ -158,18 +161,35 @@ export const Navigation = () => {
 
         <div>
           <UserItem />
-          <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
-          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
-          <Item onClick={handleCreateNote} label="New page" icon={PlusCircle} />
+          <Item
+            label={`${t("search")}`}
+            icon={Search}
+            isSearch
+            onClick={search.onOpen}
+          />
+          <Item
+            label={`${t("settings")}`}
+            icon={Settings}
+            onClick={settings.onOpen}
+          />
+          <Item
+            onClick={handleCreateNote}
+            label={`${t("page")}`}
+            icon={PlusCircle}
+          />
         </div>
 
         <div className="mt-4">
           <DocumentList />
-          <Item label="Add a new page" onClick={handleCreateNote} icon={Plus} />
+          <Item
+            label={`${t("addNew")}`}
+            onClick={handleCreateNote}
+            icon={Plus}
+          />
 
           <Popover>
             <PopoverTrigger className="w-full mt-4">
-              <Item label="Trash" icon={Trash} />
+              <Item label={`${t("trash")}`} icon={Trash} />
             </PopoverTrigger>
             <PopoverContent
               side={isMobile ? "bottom" : "right"}
