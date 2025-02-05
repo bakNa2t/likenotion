@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
 import { Check, Copy, Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import {
   Popover,
@@ -26,6 +27,8 @@ export const Publish = ({ initialData }: PublishProps) => {
 
   const origin = useOrigin();
   const update = useMutation(api.documents.update);
+
+  const t = useTranslations("Documents");
 
   const url = `${origin}/preview/${initialData._id}`;
 
@@ -73,7 +76,7 @@ export const Publish = ({ initialData }: PublishProps) => {
     <Popover>
       <PopoverTrigger asChild>
         <Button size="sm" variant="ghost">
-          Publish
+          {t("Publish.trigerPublish")}
           {initialData.isPublished && (
             <Globe className="w-4 h-4 ml-2 text-purple-500" />
           )}
@@ -86,7 +89,7 @@ export const Publish = ({ initialData }: PublishProps) => {
             <div className="flex items-center gap-x-2">
               <Globe className="w-4 h-4 animate-pulse text-purple-500" />
               <p className="text-xs font-medium text-purple-500">
-                This note is live on the web
+                {t("Publish.publisLinkHeading")}
               </p>
             </div>
 
@@ -116,16 +119,18 @@ export const Publish = ({ initialData }: PublishProps) => {
               className="w-full text-xs"
               disabled={isSubmiting}
             >
-              Unpublish
+              {t("Publish.unpublishBtn")}
             </Button>
           </div>
         ) : (
           <div className="flex flex-col justify-center items-center">
             <Globe className="w-8 h-8 text-muted-foreground mb-2 text-purple-500" />
-            <p className="text-sm font-medium mb-2">Publish this note</p>
+            <p className="text-sm font-medium mb-2">
+              {t("Publish.publishTitle")}
+            </p>
 
             <span className="text-xs text-muted-foreground mb-4">
-              Share your note with the world
+              {t("Publish.publishSubtitile")}
             </span>
 
             <Button
@@ -134,7 +139,7 @@ export const Publish = ({ initialData }: PublishProps) => {
               onClick={onPublish}
               disabled={isSubmiting}
             >
-              Publish
+              {t("Publish.publishBtn")}
             </Button>
           </div>
         )}
