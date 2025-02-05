@@ -9,9 +9,11 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
+import { useTranslations } from "next-intl";
 
 const DocumentsPage = () => {
   const router = useRouter();
+  const t = useTranslations("Documents");
 
   const { user } = useUser();
   const create = useMutation(api.documents.create);
@@ -46,11 +48,11 @@ const DocumentsPage = () => {
       />
 
       <h2 className="text-lg font-semibold">
-        Welcome to {user?.firstName}&apos;s Likenotion
+        {t("welcome")} {user?.firstName}&apos;s Likenotion
       </h2>
       <Button onClick={onCreate}>
         <PlusCircle className="w-4 h-4 mr-2" />
-        Create a note
+        {t("createBtn")}
       </Button>
     </div>
   );

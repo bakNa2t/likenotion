@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useQuery } from "convex/react";
 import { FileIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Item } from "./Item";
 
@@ -24,6 +25,8 @@ export const DocumentList = ({
   const params = useParams();
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+
+  const t = useTranslations("Documents");
 
   const onExpand = (documentId: string) => {
     setExpanded((prevExpanded) => ({
@@ -66,7 +69,7 @@ export const DocumentList = ({
           level === 0 && "hidden"
         )}
       >
-        No pages inside
+        {t("noPageInside")}
       </p>
       {documents.map((document) => (
         <div key={document._id}>
