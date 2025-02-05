@@ -23,7 +23,14 @@
     "lang": "Язык",
     "langDescription": "Выберите язык Likenotion на вашем устройстве",
     "en": "Английский",
-    "ru": "Русский"
+    "ru": "Русский",
+    "searchPlaceholder": "Поиск по названию...",
+    "trashPlaceholder": "Фильтр по названию...",
+    "cancel": "Отменить",
+    "confirm": "Подтвердить",
+    "bannerTitle": "Этот документ находится в корзине",
+    "restoreDoc": "Восстановить",
+    "delPermanently": "Удалить навсегда"
   },
   "Documents": {
     "search": "Поиск",
@@ -34,11 +41,39 @@
     "noPageInside": "Внутри нет страниц",
     "welcome": "Добро пожаловать в",
     "createBtn": "Создать документ",
+    "addIcon": "Добавить иконку",
+    "addCover": "Добавить обложку",
+    "changeCover": "Изменить обложку",
+    "removeCover": "Удалить обложку",
     "toast": {
       "loadingCreate": "Создание нового документа...",
       "successCreate": "Документ создан успешно!",
-      "errorCreate": "Не удалось создать документ"
+      "errorCreate": "Не удалось создать документ",
+      "loadingDelete": "Удаление документа...",
+      "successDelete": "Документ удален успешно!",
+      "errorDelete": "Не удалось удалить документ",
+      "loadingRestore": "Восстановление документа...",
+      "successRestore": "Документ восстановлен успешно!",
+      "errorRestore": "Не удалось восстановить документ",
+      "loadingPublish": "Публикация документа...",
+      "successPublish": "Документ опубликован успешно!",
+      "errorPublish": "Не удалось опубликовать документ",
+      "loadingUnpublish": "Снятие публикации документа...",
+      "successUnpublish": "Документ снят с публикации успешно!",
+      "errorUnpublish": "Не удалось снять публикацию документа"
     },
-    "untitled": "Безимянный"
+    "untitled": "Безимянный",
+    "delete": "Удалить",
+    "signOut": "Выйти",
+    "editedBy": "Последнее редактирование: ",
+    "docsNotFound": "Документы не найдены",
+    "Publish": {
+      "trigerPublish": "Публикация",
+      "publishBtn": "Опубликовать",
+      "unpublishBtn": "Снять публикацию",
+      "publishTitle": "Опубликовать этот документ",
+      "publishSubtitile": "Поделиться документом со всем миром",
+      "publisLinkHeading": "Этот документ доступен в Интернете"
+    }
   }
 }

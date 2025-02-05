@@ -23,7 +23,14 @@
     "lang": "Language",
     "langDescription": "Chose Likenotion's language on your device",
     "en": "English",
-    "ru": "Russian"
+    "ru": "Russian",
+    "searchPlaceholder": "Search by title...",
+    "trashPlaceholder": "Filter by title...",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "bannerTitle": "This note is in the Trash",
+    "restoreDoc": "Restore note",
+    "delPermanently": "Delete permanently"
   },
   "Documents": {
     "search": "Search",
@@ -34,11 +41,39 @@
     "noPageInside": "No pages inside",
     "welcome": "Welcome to",
     "createBtn": "Create a note",
+    "addIcon": "Add icon",
+    "addCover": "Add cover",
+    "changeCover": "Change cover",
+    "removeCover": "Remove cover",
     "toast": {
       "loadingCreate": "Creating a new note...",
       "successCreate": "Note created successfully!",
-      "errorCreate": "Failed to create a note"
+      "errorCreate": "Failed to create a note",
+      "loadingDelete": "Deleting note...",
+      "successDelete": "Note removed successfully!",
+      "errorDelete": "Failed to remove note",
+      "loadingRestore": "Restoring note...",
+      "successRestore": "Note restored successfully!",
+      "errorRestore": "Failed to restore note",
+      "loadingPublish": "Publishing note...",
+      "successPublish": "Note published successfully!",
+      "errorPublish": "Failed to publish note",
+      "loadingUnpublish": "Unpublishing note...",
+      "successUnpublish": "Note unpublished successfully!",
+      "errorUnpublish": "Failed to unpublish note"
     },
-    "untitled": "Untitled"
+    "untitled": "Untitled",
+    "delete": "Delete",
+    "signOut": "Sign out",
+    "editedBy": "Last edited by",
+    "docsNotFound": "No documents found",
+    "Publish": {
+      "trigerPublish": "Publish",
+      "publishBtn": "Publish",
+      "unpublishBtn": "Unpublish",
+      "publishTitle": "Publish this note",
+      "publishSubtitile": "Share your note with the world",
+      "publisLinkHeading": "This note is live on the web"
+    }
   }
 }
