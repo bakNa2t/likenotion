@@ -33,6 +33,12 @@
     "addNew": "Add new page",
     "noPageInside": "No pages inside",
     "welcome": "Welcome to",
-    "createBtn": "Create a note"
+    "createBtn": "Create a note",
+    "toast": {
+      "loadingCreate": "Creating a new note...",
+      "successCreate": "Note created successfully!",
+      "errorCreate": "Failed to create a note"
+    },
+    "untitled": "Untitled"
   }
 }
