@@ -5,6 +5,7 @@ import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import {
   ChevronDown,
   ChevronRight,
@@ -54,6 +55,7 @@ export const Item = ({
   const router = useRouter();
   const create = useMutation(api.documents.create);
   const archive = useMutation(api.documents.archive);
+  const t = useTranslations("Documents");
 
   const handleExpand = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -67,7 +69,7 @@ export const Item = ({
 
     if (!id) return;
 
-    const promise = create({ title: "Untitled", parentDocument: id }).then(
+    const promise = create({ title: t("untitled"), parentDocument: id }).then(
       (documentId) => {
         if (!expanded) {
           onExpand?.();
@@ -77,9 +79,9 @@ export const Item = ({
     );
 
     toast.promise(promise, {
-      loading: "Creating a new note...",
-      success: "Note created successfully!",
-      error: "Failed to create a new note",
+      loading: t("toast.loadingCreate"),
+      success: t("toast.successCreate"),
+      error: t("toast.errorCreate"),
     });
   };
 

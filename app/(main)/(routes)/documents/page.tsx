@@ -4,12 +4,12 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { PlusCircle } from "lucide-react";
 import { useUser } from "@clerk/clerk-react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
-import { useTranslations } from "next-intl";
 
 const DocumentsPage = () => {
   const router = useRouter();
@@ -19,14 +19,14 @@ const DocumentsPage = () => {
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
-    const promise = create({ title: "Untitled" }).then((documentId) =>
+    const promise = create({ title: t("untitled") }).then((documentId) =>
       router.push(`/documents/${documentId}`)
     );
 
     toast.promise(promise, {
-      loading: "Creating a new note...",
-      success: "Note created successfully!",
-      error: "Failed to create a note",
+      loading: t("toast.loadingCreate"),
+      success: t("toast.successCreate"),
+      error: t("toast.errorCreate"),
     });
   };
 

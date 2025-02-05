@@ -132,9 +132,9 @@ export const Navigation = () => {
     }).then((documentId) => router.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
-      loading: "Creating a new note...",
-      success: "Note created successfully!",
-      error: "Failed to create a new note",
+      loading: t("toast.loadingCreate"),
+      success: t("toast.successCreate"),
+      error: t("toast.errorCreate"),
     });
   };
 
