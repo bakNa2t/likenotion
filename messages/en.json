@@ -30,6 +30,9 @@
     "settings": "Settings",
     "trash": "Trash",
     "page": "New page",
-    "addNew": "Add new page"
+    "addNew": "Add new page",
+    "noPageInside": "No pages inside",
+    "welcome": "Welcome to",
+    "createBtn": "Create a note"
   }
 }
