@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useUser } from "@clerk/clerk-react";
 
 import {
@@ -23,6 +24,7 @@ export const SearchCommand = () => {
   const documents = useQuery(api.documents.getSearch);
   const { user } = useUser();
   const [isMounted, setIsMounted] = useState(false);
+  const t = useTranslations("DropdownMenu");
 
   const toggle = useSearch((store) => store.toggle);
   const isOpen = useSearch((store) => store.isOpen);
@@ -54,11 +56,13 @@ export const SearchCommand = () => {
 
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
-      <CommandInput placeholder={`Search ${user?.fullName}'s notes...`} />
+      <CommandInput
+        placeholder={`${t("searchPlaceholderStart")} ${user?.fullName}'s ${t("searchPlaceholderEnd")}`}
+      />
 
       <CommandList>
-        <CommandEmpty>No notes found.</CommandEmpty>
-        <CommandGroup heading="Notes">
+        <CommandEmpty>{t("searchNotFound")}</CommandEmpty>
+        <CommandGroup heading={t("searchSubTitle")}>
           {documents?.map((document) => (
             <CommandItem
               key={document._id}
