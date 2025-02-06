@@ -26,6 +26,8 @@
     "ru": "Russian",
     "searchPlaceholder": "Search by title...",
     "trashPlaceholder": "Filter by title...",
+    "confirmTitle": "Are you sure?",
+    "confirmDescription": "This action cannot be undone",
     "cancel": "Cancel",
     "confirm": "Confirm",
     "bannerTitle": "This note is in the Trash",

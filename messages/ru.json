@@ -26,6 +26,8 @@
     "ru": "Русский",
     "searchPlaceholder": "Поиск по названию...",
     "trashPlaceholder": "Фильтр по названию...",
+    "confirmTitle": "Вы уверены?",
+    "confirmDescription": "Это действие нельзя отменить",
     "cancel": "Отменить",
     "confirm": "Подтвердить",
     "bannerTitle": "Этот документ находится в корзине",
