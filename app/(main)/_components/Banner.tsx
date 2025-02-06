@@ -9,6 +9,7 @@ import { ConfirmModal } from "@/components/modals/ConfirmModal";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
+import { useTranslations } from "next-intl";
 
 interface BannerProps {
   documentId: Id<"documents">;
@@ -16,6 +17,7 @@ interface BannerProps {
 
 export const Banner = ({ documentId }: BannerProps) => {
   const router = useRouter();
+  const t = useTranslations("Documents");
 
   const remove = useMutation(api.documents.remove);
   const restore = useMutation(api.documents.restore);
@@ -24,9 +26,9 @@ export const Banner = ({ documentId }: BannerProps) => {
     const promise = remove({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Deleting note...",
-      success: "Note deleted successfully!",
-      error: "Failed to delete note",
+      loading: t("toast.loadingDelete"),
+      success: t("toast.successDelete"),
+      error: t("toast.errorDelete"),
     });
 
     router.push("/documents");
@@ -36,15 +38,15 @@ export const Banner = ({ documentId }: BannerProps) => {
     const promise = restore({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Restoring note...",
-      success: "Note restored successfully!",
-      error: "Failed to restore note",
+      loading: t("toast.loadingRestore"),
+      success: t("toast.successRestore"),
+      error: t("toast.errorRestore"),
     });
   };
 
   return (
-    <div className="w-full flex items-center justify-center gap-x-2 p-2 text-white text-sm text-center bg-red-400">
-      <p> This note is in the Trash</p>
+    <div className="w-full flex items-center justify-center gap-x-2 p-2 text-white text-sm text-center bg-rose-600/70 backdrop-filter backdrop-blur-sm">
+      <p>{t("bannerTitle")}</p>
 
       <Button
         variant="outline"
@@ -52,7 +54,7 @@ export const Banner = ({ documentId }: BannerProps) => {
         onClick={onRestore}
         className="p-1 px-2 h-auto font-normal border-white text-white bg-transparent hover:bg-primary/5 hover:text-white"
       >
-        Restore note
+        {t("restoreDoc")}
       </Button>
 
       <ConfirmModal onConfirm={onRemove}>
@@ -61,7 +63,7 @@ export const Banner = ({ documentId }: BannerProps) => {
           size="sm"
           className="p-1 px-2 h-auto font-normal border-white text-white bg-transparent hover:bg-primary/5 hover:text-white"
         >
-          Delete permanently
+          {t("delPermanently")}
         </Button>
       </ConfirmModal>
     </div>

@@ -29,10 +29,7 @@
     "confirmTitle": "Вы уверены?",
     "confirmDescription": "Это действие нельзя отменить",
     "cancel": "Отменить",
-    "confirm": "Подтвердить",
-    "bannerTitle": "Этот документ находится в корзине",
-    "restoreDoc": "Восстановить",
-    "delPermanently": "Удалить навсегда"
+    "confirm": "Подтвердить"
   },
   "Documents": {
     "search": "Поиск",
@@ -47,6 +44,22 @@
     "addCover": "Добавить обложку",
     "changeCover": "Изменить обложку",
     "removeCover": "Удалить обложку",
+    "bannerTitle": "Этот документ находится в корзине",
+    "restoreDoc": "Восстановить",
+    "delPermanently": "Удалить навсегда",
+    "untitled": "Безимянный",
+    "delete": "Удалить",
+    "signOut": "Выйти",
+    "editedBy": "Последнее редактирование: ",
+    "docsNotFound": "Документы не найдены",
+    "Publish": {
+      "trigerPublish": "Публикация",
+      "publishBtn": "Опубликовать",
+      "unpublishBtn": "Снять публикацию",
+      "publishTitle": "Опубликовать этот документ",
+      "publishSubtitile": "Поделиться документом со всем миром",
+      "publisLinkHeading": "Этот документ доступен в Интернете"
+    },
     "toast": {
       "loadingCreate": "Создание нового документа...",
       "successCreate": "Документ создан успешно!",
@@ -63,19 +76,6 @@
       "loadingUnpublish": "Снятие публикации документа...",
       "successUnpublish": "Документ снят с публикации успешно!",
       "errorUnpublish": "Не удалось снять публикацию документа"
-    },
-    "untitled": "Безимянный",
-    "delete": "Удалить",
-    "signOut": "Выйти",
-    "editedBy": "Последнее редактирование: ",
-    "docsNotFound": "Документы не найдены",
-    "Publish": {
-      "trigerPublish": "Публикация",
-      "publishBtn": "Опубликовать",
-      "unpublishBtn": "Снять публикацию",
-      "publishTitle": "Опубликовать этот документ",
-      "publishSubtitile": "Поделиться документом со всем миром",
-      "publisLinkHeading": "Этот документ доступен в Интернете"
     }
   }
 }

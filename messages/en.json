@@ -29,10 +29,7 @@
     "confirmTitle": "Are you sure?",
     "confirmDescription": "This action cannot be undone",
     "cancel": "Cancel",
-    "confirm": "Confirm",
-    "bannerTitle": "This note is in the Trash",
-    "restoreDoc": "Restore note",
-    "delPermanently": "Delete permanently"
+    "confirm": "Confirm"
   },
   "Documents": {
     "search": "Search",
@@ -47,6 +44,22 @@
     "addCover": "Add cover",
     "changeCover": "Change cover",
     "removeCover": "Remove cover",
+    "bannerTitle": "This note is in the Trash",
+    "restoreDoc": "Restore note",
+    "delPermanently": "Delete permanently",
+    "untitled": "Untitled",
+    "delete": "Delete",
+    "signOut": "Sign out",
+    "editedBy": "Last edited by",
+    "docsNotFound": "No documents found",
+    "Publish": {
+      "trigerPublish": "Publish",
+      "publishBtn": "Publish",
+      "unpublishBtn": "Unpublish",
+      "publishTitle": "Publish this note",
+      "publishSubtitile": "Share your note with the world",
+      "publisLinkHeading": "This note is live on the web"
+    },
     "toast": {
       "loadingCreate": "Creating a new note...",
       "successCreate": "Note created successfully!",
@@ -63,19 +76,6 @@
       "loadingUnpublish": "Unpublishing note...",
       "successUnpublish": "Note unpublished successfully!",
       "errorUnpublish": "Failed to unpublish note"
-    },
-    "untitled": "Untitled",
-    "delete": "Delete",
-    "signOut": "Sign out",
-    "editedBy": "Last edited by",
-    "docsNotFound": "No documents found",
-    "Publish": {
-      "trigerPublish": "Publish",
-      "publishBtn": "Publish",
-      "unpublishBtn": "Unpublish",
-      "publishTitle": "Publish this note",
-      "publishSubtitile": "Share your note with the world",
-      "publisLinkHeading": "This note is live on the web"
     }
   }
 }
