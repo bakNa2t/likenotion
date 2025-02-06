@@ -5,6 +5,7 @@ import { UploadCloudIcon, X } from "lucide-react";
 import * as React from "react";
 import { useDropzone, type DropzoneOptions } from "react-dropzone";
 import { twMerge } from "tailwind-merge";
+import { useTranslations } from "next-intl";
 
 import { Spinner } from "./spinner";
 
@@ -59,6 +60,9 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
       }
       return null;
     }, [value]);
+
+    // translations
+    const t = useTranslations("DropdownMenu");
 
     // dropzone configuration
     const {
@@ -153,9 +157,7 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
             // Upload Icon
             <div className="flex flex-col items-center justify-center text-xs text-gray-400">
               <UploadCloudIcon className="mb-2 h-7 w-7" />
-              <div className="text-gray-400">
-                Click or drag to this area to upload
-              </div>
+              <div className="text-gray-400">{t("coverImageDescription")}</div>
             </div>
           )}
 

@@ -29,7 +29,9 @@
     "confirmTitle": "Вы уверены?",
     "confirmDescription": "Это действие нельзя отменить",
     "cancel": "Отменить",
-    "confirm": "Подтвердить"
+    "confirm": "Подтвердить",
+    "coverImageTitle": "Обложка",
+    "coverImageDescription": "Нажмите или перетащите в эту область, чтобы загрузить"
   },
   "Documents": {
     "search": "Поиск",

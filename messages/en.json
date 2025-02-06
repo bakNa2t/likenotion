@@ -29,7 +29,9 @@
     "confirmTitle": "Are you sure?",
     "confirmDescription": "This action cannot be undone",
     "cancel": "Cancel",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "coverImageTitle": "Cover Image",
+    "coverImageDescription": "Click or drag to this area to upload"
   },
   "Documents": {
     "search": "Search",
