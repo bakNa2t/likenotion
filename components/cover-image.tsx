@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMutation } from "convex/react";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { ImageIcon, X } from "lucide-react";
 
 import { Button } from "./ui/button";
@@ -25,6 +26,8 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
   const { edgestore } = useEdgeStore();
 
   const removeCoverImage = useMutation(api.documents.removeCoverImage);
+
+  const t = useTranslations("Documents");
 
   const onRemove = async () => {
     if (url) {
@@ -57,7 +60,7 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
             className="text-muted-foreground text-xs"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
-            Change cover
+            {t("changeCover")}
           </Button>
 
           <Button
@@ -67,7 +70,7 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
             className="text-muted-foreground text-xs"
           >
             <X className="w-4 h-4 mr-1" />
-            Remove cover
+            {t("removeCover")}
           </Button>
         </div>
       )}
@@ -76,7 +79,5 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
 };
 
 CoverImage.Skeleton = function CoverImageSkeleton() {
-  return (
-    <Skeleton className="w-full h-[12vh]"/>
-  )
-}
+  return <Skeleton className="w-full h-[12vh]" />;
+};
