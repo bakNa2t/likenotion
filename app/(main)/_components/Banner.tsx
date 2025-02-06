@@ -2,6 +2,7 @@
 
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,6 @@ import { ConfirmModal } from "@/components/modals/ConfirmModal";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { useTranslations } from "next-intl";
 
 interface BannerProps {
   documentId: Id<"documents">;

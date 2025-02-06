@@ -3,6 +3,7 @@
 import { ComponentRef, useRef, useState } from "react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { useMutation } from "convex/react";
+import { useTranslations } from "next-intl";
 import TextareaAutosize from "react-textarea-autosize";
 
 import { IconPicker } from "./icon-picker";
@@ -26,6 +27,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const removeIcon = useMutation(api.documents.removeIcon);
 
   const coverImage = useCoverImage();
+  const t = useTranslations("Documents");
 
   const enableInput = () => {
     if (preview) return;
@@ -44,7 +46,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
 
     update({
       id: initialData._id,
-      title: value || "Untitled",
+      title: value || t("untitled"),
     });
   };
 
@@ -102,7 +104,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
               className="text-xs text-muted-foreground"
             >
               <Smile className="w-4 h-4 mr-1" />
-              Add icon
+              {t("addIcon")}
             </Button>
           </IconPicker>
         )}
@@ -115,7 +117,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             className="text-xs text-muted-foreground"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
-            Add cover
+            {t("addCover")}
           </Button>
         )}
       </div>
