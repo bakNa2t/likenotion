@@ -2,6 +2,7 @@
 
 import { ChevronsLeftRight } from "lucide-react";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
+import { useTranslations } from "next-intl";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -14,6 +15,8 @@ import {
 
 export const UserItem = () => {
   const { user } = useUser();
+
+  const t = useTranslations("Documents");
 
   return (
     <DropdownMenu>
@@ -66,7 +69,7 @@ export const UserItem = () => {
           asChild
           className="w-full text-muted-foreground cursor-pointer"
         >
-          <SignOutButton>Sign out</SignOutButton>
+          <SignOutButton>{t("signOut")}</SignOutButton>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
