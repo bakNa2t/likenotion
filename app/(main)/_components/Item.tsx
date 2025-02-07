@@ -95,9 +95,9 @@ export const Item = ({
     router.push("/documents");
 
     toast.promise(promise, {
-      loading: "Moving to trash",
-      success: "Note moved to trash",
-      error: "Failed to move note to trash",
+      loading: t("toast.loadingMove"),
+      success: t("toast.successMove"),
+      error: t("toast.errorMove"),
     });
   };
 
@@ -159,11 +159,11 @@ export const Item = ({
             >
               <DropdownMenuItem onClick={onArchive}>
                 <Trash className="w-4 h-4 mr-2" />
-                Delete
+                {t("delete")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <div className="text-xs text-muted-foreground p-2">
-                Last edited by: {user?.fullName}
+                {t("editedBy")} {user?.fullName}
               </div>
             </DropdownMenuContent>
           </DropdownMenu>
