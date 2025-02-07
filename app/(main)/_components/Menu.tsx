@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { MoreHorizontal, Trash } from "lucide-react";
 
@@ -26,6 +27,7 @@ interface MenuProps {
 export const Menu = ({ documentId }: MenuProps) => {
   const router = useRouter();
   const { user } = useUser();
+  const t = useTranslations("Documents");
 
   const archive = useMutation(api.documents.archive);
 
@@ -33,9 +35,9 @@ export const Menu = ({ documentId }: MenuProps) => {
     const promise = archive({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Moving to trash",
-      success: "Note moved to trash",
-      error: "Failed to move note to trash",
+      loading: t("toast.loadingMove"),
+      success: t("toast.successMove"),
+      error: t("toast.errorMove"),
     });
 
     router.push("/documents");
@@ -57,13 +59,13 @@ export const Menu = ({ documentId }: MenuProps) => {
       >
         <DropdownMenuItem onClick={onArchive} role="button">
           <Trash className="w-4 h-4 mr-2" />
-          Delete
+          {t("delete")}
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
 
         <div className="text-xs text-muted-foreground p-2">
-          Last edited by: {user?.fullName}
+          {t("editedBy")} {user?.fullName}
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
