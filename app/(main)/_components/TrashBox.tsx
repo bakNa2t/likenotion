@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { useParams, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Search, Trash, Undo } from "lucide-react";
 
@@ -21,6 +22,8 @@ export const TrashBox = () => {
   const remove = useMutation(api.documents.remove);
 
   const [search, setSearch] = useState("");
+  const t = useTranslations("Documents");
+  const tPlaceholder = useTranslations("DropdownMenu");
 
   const filteredDocuments = documents?.filter((document) => {
     return document.title.toLowerCase().includes(search.toLocaleLowerCase());
@@ -39,9 +42,9 @@ export const TrashBox = () => {
     const promise = restore({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Restoring note...",
-      success: "Note restored successfully!",
-      error: "Failed to restore note",
+      loading: t("toast.loadingRestore"),
+      success: t("toast.successRestore"),
+      error: t("toast.errorRestore"),
     });
   };
 
@@ -49,9 +52,9 @@ export const TrashBox = () => {
     const promise = remove({ id: documentId });
 
     toast.promise(promise, {
-      loading: "Deleting note...",
-      success: "Note removed successfully!",
-      error: "Failed to remove note",
+      loading: t("toast.loadingDelete"),
+      success: t("toast.successDelete"),
+      error: t("toast.errorDelete"),
     });
 
     if (params.documentId === documentId) {
@@ -75,13 +78,13 @@ export const TrashBox = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="h-7 px-2 focus-visible:ring-transparent bg-secondary"
-          placeholder="Filter by title..."
+          placeholder={tPlaceholder("trashPlaceholder")}
         />
       </div>
 
       <div className="mt-2 px-1 pb-1">
         <p className="hidden last:block tetx-xs text-center tetx-muted-foreground">
-          No documents found
+          {t("docsNotFound")}
         </p>
 
         {filteredDocuments?.map((document) => (
