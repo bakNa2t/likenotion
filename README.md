@@ -48,3 +48,13 @@ npx convex dev
 ```
 npm run dev
 ```
+
+### Screenshot
+
+<div align="center">
+    <p style="width: 500px;">
+        <a href="https://github.com/bakna2t/likenotion" target="_blank" >
+            <img alt="Likenotion" src ="./public/app-banner.png" width="500">
+        </a>
+    </p>
+</div>
