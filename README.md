@@ -26,6 +26,13 @@ This project is a simplified clone of the popular productivity application, Noti
 
 ## Getting Started
 
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (>= 16.x)
+- **Npm** (or yarn)
+
 1. Clone the repository
 2. Install the dependencies
 
