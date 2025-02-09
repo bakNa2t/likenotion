@@ -2,7 +2,7 @@
 
 This project is a simplified clone of the popular productivity application, Notion. It's designed to replicate some of the core features of Notion, providing a platform where users can create, edit, and organize their notes in a flexible and intuitive interface.
 
-## Technologies
+## Technologies:
 
 <!-- ![NextJS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) -->
 
@@ -13,6 +13,16 @@ This project is a simplified clone of the popular productivity application, Noti
 ![Convex](https://img.shields.io/badge/Convex-ee342f.svg?style=for-the-badge&logo=Convex&logoColor=white)
 ![Edgestore](https://img.shields.io/badge/Edgestore-a57fff.svg?style=for-the-badge&logo=Edgestore&logoColor=white)
 ![Blocknote](https://img.shields.io/badge/Blocknote-ff8c00.svg?style=for-the-badge&logo=Blocknote&logoColor=white)
+
+## Functionality:
+
+- mobile-responsive design;
+- intuitive, customizable UI using Tailwind CSS and ShadCN components;
+- authentication (sign-in / sign-up) with Clerk;
+- real-time data (save / fetch) sync using Convex;
+- full-featured note-taking and task management;
+- seamless storage management with EdgeStore;
+- support for multiple languages (English and Russian) using i18next;
 
 ## Getting Started
 
