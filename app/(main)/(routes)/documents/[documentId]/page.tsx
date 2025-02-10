@@ -1,6 +1,6 @@
 "use client";
 
-import { Usable, use, useMemo } from "react";
+import { use, useMemo } from "react";
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
 
@@ -12,9 +12,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface DocumentIdPageProps {
-  params: {
-    documentId: Id<"documents">;
-  };
+  params: Promise<{ documentId: Id<"documents"> }>;
 }
 
 const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
@@ -23,9 +21,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     []
   );
 
-  const paramsValue = use(
-    params as unknown as Usable<{ documentId: Id<"documents"> }>
-  );
+  const paramsValue = use(params);
 
   const document = useQuery(api.documents.getById, {
     documentId: paramsValue.documentId,
@@ -35,7 +31,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 
   const onChange = (content: string) => {
     update({
-      id: params.documentId,
+      id: paramsValue.documentId,
       content,
     });
   };
@@ -69,7 +65,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
         <Editor
           onChange={onChange}
           initialContent={document.content}
-          params={params}
+          params={paramsValue}
         />
       </div>
     </div>
