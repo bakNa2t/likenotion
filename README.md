@@ -2,17 +2,27 @@
 
 This project is a simplified clone of the popular productivity application, Notion. It's designed to replicate some of the core features of Notion, providing a platform where users can create, edit, and organize their notes in a flexible and intuitive interface.
 
-## Technologies:
+## Development with:
 
 <!-- ![NextJS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) -->
 
-![Shadcn-ui](https://img.shields.io/badge/shadcn/ui-000000.svg?style=for-the-badge&logo=shadcn/ui&logoColor=white)
+- [NextJS](https://nextjs.org/docs)
+- [Shadcn-ui](https://ui.shadcn.com/docs)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Clerk](https://clerk.com/docs)
+- [Convex](https://docs.convex.dev/home)
+- [Edgestore](https://edgestore.dev/docs/quick-start)
+- [Blocknote](https://www.blocknotejs.org/docs)
+- [Next-intl](https://next-intl.dev/docs/getting-started)
+
+<!-- ![Shadcn-ui](https://img.shields.io/badge/shadcn/ui-000000.svg?style=for-the-badge&logo=shadcn/ui&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white)
 ![Clerk](https://img.shields.io/badge/Clerk-6C47FF.svg?style=for-the-badge&logo=Clerk&logoColor=white)
 ![Convex](https://img.shields.io/badge/Convex-ee342f.svg?style=for-the-badge&logo=Convex&logoColor=white)
 ![Edgestore](https://img.shields.io/badge/Edgestore-a57fff.svg?style=for-the-badge&logo=Edgestore&logoColor=white)
-![Blocknote](https://img.shields.io/badge/Blocknote-ff8c00.svg?style=for-the-badge&logo=Blocknote&logoColor=white)
+![Blocknote](https://img.shields.io/badge/Blocknote-ff8c00.svg?style=for-the-badge&logo=Blocknote&logoColor=white) -->
 
 ## Functionality:
 
