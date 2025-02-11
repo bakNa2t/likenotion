@@ -57,7 +57,7 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
             size="sm"
             variant="outline"
             onClick={() => coverImage.onReplace(url)}
-            className="text-muted-foreground text-xs"
+            className="text-muted dark:text-primary/60 dark:hover:text-primary/90 text-xs bg-background/50 hover:bg-background/90 dark:bg-[#131313]/50 dark:hover:bg-[#131313]/90 backdrop-filter backdrop-blur-sm"
           >
             <ImageIcon className="w-4 h-4 mr-1" />
             {t("changeCover")}
@@ -67,7 +67,8 @@ export const CoverImage = ({ url, preview }: CoverImageProps) => {
             size="sm"
             variant="outline"
             onClick={onRemove}
-            className="text-muted-foreground text-xs"
+            className="text-muted dark:text-primary/60 dark:hover:text-primary/90 text-xs bg-background/50 hover:bg-background/90 dark:bg-[#131313]/50 dark:hover:bg-[#131313]/90 backdrop-filter backdrop-blur-sm"
+            // className="text-muted-foreground text-xs"
           >
             <X className="w-4 h-4 mr-1" />
             {t("removeCover")}
