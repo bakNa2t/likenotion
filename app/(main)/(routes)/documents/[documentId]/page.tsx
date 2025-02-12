@@ -1,8 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { use, useMemo } from "react";
 import { useMutation, useQuery } from "convex/react";
+import dynamic from "next/dynamic";
 
 import { Toolbar } from "@/components/toolbar";
 import { CoverImage } from "@/components/cover-image";
@@ -12,7 +12,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface DocumentIdPageProps {
-  params: { documentId: Id<"documents"> };
+  params: Promise<{ documentId: Id<"documents"> }>;
 }
 
 const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
@@ -21,15 +21,19 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     []
   );
 
+  const { documentId } = use(params);
+
+  console.log(documentId);
+
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId,
+    documentId: documentId,
   });
 
   const update = useMutation(api.documents.update);
 
   const onChange = (content: string) => {
     update({
-      id: params.documentId,
+      id: documentId,
       content,
     });
   };

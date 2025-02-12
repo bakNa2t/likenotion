@@ -15,9 +15,7 @@ import { useEdgeStore } from "@/lib/edgestore";
 interface EditorProps {
   initialContent?: string;
   editable?: boolean;
-  params: {
-    documentId: Id<"documents">;
-  };
+  params: Promise<{ documentId: Id<"documents"> }>;
   onChange: (value: string) => void;
 }
 
