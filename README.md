@@ -76,11 +76,11 @@ npx convex dev
 npm run dev
 ```
 
-### Screenshot
+click here to visit => [_**Likenotion**_](https://likenotion.vercel.app/)
 
 <div align="center">
     <p style="width: 500px;">
-        <a href="https://github.com/bakna2t/likenotion" target="_blank" >
+        <a href="https://likenotion.vercel.app" target="_blank" >
             <img alt="Likenotion" src ="./public/app-banner.png" width="500">
         </a>
     </p>
