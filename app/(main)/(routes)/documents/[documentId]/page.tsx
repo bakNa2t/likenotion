@@ -23,8 +23,6 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 
   const { documentId } = use(params);
 
-  console.log(documentId);
-
   const document = useQuery(api.documents.getById, {
     documentId: documentId,
   });
