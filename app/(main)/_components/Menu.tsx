@@ -5,7 +5,7 @@ import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { MoreHorizontal, Trash } from "lucide-react";
+import { MoreHorizontal, Trash, X } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -57,7 +57,20 @@ export const Menu = ({ documentId }: MenuProps) => {
         alignOffset={8}
         forceMount
       >
-        <DropdownMenuItem onClick={onArchive} role="button">
+        <DropdownMenuItem
+          onClick={() => {}}
+          role="button"
+          className="hover:cursor-pointer"
+        >
+          <X className="w-4 h-4 mr-2" />
+          {t("close")}
+        </DropdownMenuItem>
+
+        <DropdownMenuItem
+          onClick={onArchive}
+          role="button"
+          className="hover:cursor-pointer"
+        >
           <Trash className="w-4 h-4 mr-2" />
           {t("delete")}
         </DropdownMenuItem>
