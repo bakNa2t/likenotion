@@ -79,9 +79,11 @@ npm run dev
 click here to visit => [_**Likenotion**_](https://likenotion.vercel.app/)
 
 <div align="center">
-    <p style="width: 500px;">
+    <p>
         <a href="https://likenotion.vercel.app" target="_blank" >
-            <img alt="Likenotion" src ="./public/app-banner.png" width="500">
+            <img alt="Likenotion" src ="./public/app-banner.png" width="1024">
         </a>
     </p>
 </div>
+
+### Acknowledgements by youtube tutorial [Code With Antonio](https://www.youtube.com/watch?v=0OaDyjB9Ib8)
