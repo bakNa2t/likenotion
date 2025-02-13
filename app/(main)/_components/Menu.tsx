@@ -31,6 +31,10 @@ export const Menu = ({ documentId }: MenuProps) => {
 
   const archive = useMutation(api.documents.archive);
 
+  const onClose = () => {
+    router.push("/documents");
+  };
+
   const onArchive = () => {
     const promise = archive({ id: documentId });
 
@@ -58,7 +62,7 @@ export const Menu = ({ documentId }: MenuProps) => {
         forceMount
       >
         <DropdownMenuItem
-          onClick={() => {}}
+          onClick={onClose}
           role="button"
           className="hover:cursor-pointer"
         >
