@@ -1,7 +1,7 @@
 "use client";
 
 import { ComponentRef, useRef, useState } from "react";
-import { ImageIcon, Smile, X } from "lucide-react";
+import { Edit2, ImageIcon, Smile, X } from "lucide-react";
 import { useMutation } from "convex/react";
 import { useTranslations } from "next-intl";
 import TextareaAutosize from "react-textarea-autosize";
@@ -134,9 +134,13 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
       ) : (
         <div
           onClick={enableInput}
-          className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#D9D9D9]"
+          className="flex items-baseline gap-x-2 pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#D9D9D9]"
         >
           {initialData.title}
+
+          <div className="group-hover:opacity-50 opacity-0">
+            <Edit2 className="w-6 h-6 ml-2" />
+          </div>
         </div>
       )}
     </div>
